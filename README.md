@@ -17,6 +17,7 @@ This application runs in the sidebar of a Teams meeting and assists in deciding 
 
 This application illustrates the use of Teams Live Share SDK and the Fluid Framework. The Live Share SDK provides a secure connection to a Fluid Relay service hosted in Microsoft 365. Each instance of the service is isolated to the current meeting automatically. The Fluid Relay Service, along with the Fluid Framework SDK, synchronizes the list of names across everyone who is using the app. This is not screen sharing - it's keeping a JavaScript object structure in sync among all attendees, and a React user interface is displaying the data locally.
 
+![Demo Video](assets/LiveReview_Stage_Canvas.mp4)
 ![LivePatientReview_AddPatients](assets/LivePatientReview_AddPatients.png)
 ![ShareImageInLiveCanvas](assets/ShowImageInLiveCanvas.png)
 ![LivePatientReview_ShareToStage_DiscussPatients](assets/LivePatientReview_ShareToStage_DiscussPatients.png)
