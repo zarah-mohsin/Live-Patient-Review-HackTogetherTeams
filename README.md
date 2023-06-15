@@ -14,7 +14,7 @@ This application runs in the sidebar of a Teams meeting and assists in deciding 
 
 This application illustrates the use of Teams Live Share SDK and the Fluid Framework. The Live Share SDK provides a secure connection to a Fluid Relay service hosted in Microsoft 365. Each instance of the service is isolated to the current meeting automatically. The Fluid Relay Service, along with the Fluid Framework SDK, synchronizes the list of names across everyone who is using the app. This is not screen sharing - it's keeping a JavaScript object structure in sync among all attendees, and a small React user interface is displaying the data locally.
 
-![LivePatientReview_AddPatients](.\assets\LivePatientReview_AddPatients.png)
+![LivePatientReview_AddPatients](\assets\LivePatientReview_AddPatients.png)
 ![ShareImageInLiveCanvas](.\assets\ShowImageInLiveCanvas.png)
 ![LivePatientReview_ShareToStage_DiscussPatients](.\assets\LivePatientReview_ShareToStage_DiscussPatients.png)
 ![ShareToStage_DiscussNextPatient_UpdateFluid](.\assets\ShareToStage_DiscussNextPatient_UpdateFluid.png)
@@ -106,8 +106,3 @@ After you have completed the provision and deploy steps in `Deploy the app to Az
 ### Use in other tenants
 
 This is a very simple application. It doesn't authenticate users, so the manifest works in any tenant. When you have a production deployment in Azure, you can use the same app package in any Microsoft 365 tenant where you have permission to upload or install it.
-
-### Run Fluid Relay Service in Azure
-
-If you wish to host your own Fluid Relay Service in Azure instead of using the Live Share provided Fluid Relay Service,
-you can find alternative sources [in this folder](./alt-tabs-azure/). This is allows use of the application outside of meetings. Check the README.md file for details.
