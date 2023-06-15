@@ -50,7 +50,7 @@ Then they used [Fluid Framework](https://fluidframework.com/docs/) to synchroniz
 
 Version|Date|Author|Comments
 -------|----|----|--------
-1.0|June 15, 2023|HackTeams|Using Live Share SDK created an application for Live Patient review which can be used by Specialist and docters to discuss patients using Live share canvas, give feedback etc.
+1.0|June 15, 2023|Robert Schouten|Using Live Share SDK created an application for Live Patient review which can be used by Specialist and docters to discuss patients using Live share canvas, give feedback etc.
 
 ## Disclaimer
 
