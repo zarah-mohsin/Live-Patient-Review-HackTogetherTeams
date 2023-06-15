@@ -14,12 +14,12 @@ This application runs in the sidebar of a Teams meeting and assists in deciding 
 
 This application illustrates the use of Teams Live Share SDK and the Fluid Framework. The Live Share SDK provides a secure connection to a Fluid Relay service hosted in Microsoft 365. Each instance of the service is isolated to the current meeting automatically. The Fluid Relay Service, along with the Fluid Framework SDK, synchronizes the list of names across everyone who is using the app. This is not screen sharing - it's keeping a JavaScript object structure in sync among all attendees, and a small React user interface is displaying the data locally.
 
-![LivePatientReview_AddPatients](assets\LivePatientReview_AddPatients.png)
-![ShareImageInLiveCanvas](assets\ShowImageInLiveCanvas.png)
-![LivePatientReview_ShareToStage_DiscussPatients](assets\LivePatientReview_ShareToStage_DiscussPatients.png)
-![ShareToStage_DiscussNextPatient_UpdateFluid](assets\ShareToStage_DiscussNextPatient_UpdateFluid.png)
-![LivePresenceOnCanvas](assets\LivePresenceOnCanvas.png)
-![ShareToStage_DeletePatient_UpdateFluid](assets\ShareToStage_DeletePatient_UpdateFluid.png)
+![LivePatientReview_AddPatients](assets/LivePatientReview_AddPatients.png)
+![ShareImageInLiveCanvas](assets/ShowImageInLiveCanvas.png)
+![LivePatientReview_ShareToStage_DiscussPatients](assets/LivePatientReview_ShareToStage_DiscussPatients.png)
+![ShareToStage_DiscussNextPatient_UpdateFluid](assets/ShareToStage_DiscussNextPatient_UpdateFluid.png)
+![LivePresenceOnCanvas](assets/LivePresenceOnCanvas.png)
+![ShareToStage_DeletePatient_UpdateFluid](assets/ShareToStage_DeletePatient_UpdateFluid.png)
 
 ## The Problem Statement
 MDC (MDO) meetings take play in a physical room.The meetings discusses a selection of patients, where current state is discussed, and change to be made: change of medication, surgery, discharge, etc. These meetings often discuses 4 to 6 patients and mostly take multible hours, and often have more then 10 people in the room.
