@@ -7,12 +7,15 @@ This application runs in the sidebar of a Teams meeting and assists in deciding 
 ## Usecases
 - The meeting organizer can add, remove, reorder patients to be discussed to the list (Fluid Container)
 - The meeting organizer adds the specialists (doctors) who will provide feedback (Fluid Container)
-- When joining a meeting specialists can click on a patients to open the Stage view, here they see a feedback box with their name on it.
+- When joining a meeting specialists organiser can click on a button to open the Stage view to see an overview of all patients.
 - Specialist (doctors) can add feedback per patient
+- A specialist can upload an image using the live share canvas and Ink on the image, which will automatically been displayed for each attendee
+- Each attendee can Ink on the uploaded image
 - Every participant can go to 'presenter view' - "looking at the details of the currently discussed patient"
-- A specialist can upload a image using the live share canvas and 
+- LivePresence is used to lookup all meeting users and their role.
+- Based on role, certain buttons are displayed only for organiser giving more control within the application.
 
-This application illustrates the use of Teams Live Share SDK and the Fluid Framework. The Live Share SDK provides a secure connection to a Fluid Relay service hosted in Microsoft 365. Each instance of the service is isolated to the current meeting automatically. The Fluid Relay Service, along with the Fluid Framework SDK, synchronizes the list of names across everyone who is using the app. This is not screen sharing - it's keeping a JavaScript object structure in sync among all attendees, and a small React user interface is displaying the data locally.
+This application illustrates the use of Teams Live Share SDK and the Fluid Framework. The Live Share SDK provides a secure connection to a Fluid Relay service hosted in Microsoft 365. Each instance of the service is isolated to the current meeting automatically. The Fluid Relay Service, along with the Fluid Framework SDK, synchronizes the list of names across everyone who is using the app. This is not screen sharing - it's keeping a JavaScript object structure in sync among all attendees, and a React user interface is displaying the data locally.
 
 ![LivePatientReview_AddPatients](assets/LivePatientReview_AddPatients.png)
 ![ShareImageInLiveCanvas](assets/ShowImageInLiveCanvas.png)
