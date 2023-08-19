@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 //import { useLiveCanvas } from "../utils/useLiveCanvas";
 import FluidService from "../services/fluidLiveShare.js";
 import { app } from "@microsoft/teams-js";
-import "./MainMenu.scss";
+import "./MainMenu.css";
 import { UserMeetingRole } from "@microsoft/live-share";
 import * as liveShareHooks from "../live-share-hooks/index.js";
 import {
@@ -15,6 +15,7 @@ import {
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import fluidLiveShare from "../services/fluidLiveShare.js";
 import GameCard from "./GameCard.jsx";
+import games from "../models/Games.json";
 
 export const MainMenu = (presence) => {
   const [people, setPeople] = useState([]);
@@ -213,21 +214,25 @@ export const MainMenu = (presence) => {
           {menuVisible && (
             <div>
               <h2>Choose a game to play</h2>
-              <button
-                className="gameSelect"
-                onClick={() => {
-                  setMenuVisible(false);
-                  setGameSettingsVisible(true);
-                }}
-              >
-                Snakes and Ladders
-              </button>
+              {games.map((game) => {
+                return (
+                  <button
+                    className="gameSelect"
+                    onClick={() => {
+                      setMenuVisible(false);
+                      setGameSettingsVisible(true);
+                    }}
+                  >
+                    {game.Title}
+                  </button>
+                );
+              })}
             </div>
           )}
           {gameSettingsVisible && (
             <div>
               <h2>Choose which participants can play</h2>
-              <GameCard />
+              <GameCard games={games} />
               <button
                 onClick={() => {
                   setGameSettingsVisible(false);
