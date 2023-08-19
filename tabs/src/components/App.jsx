@@ -1,12 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Privacy from "./Privacy";
 import TermsOfUse from "./TermsOfUse";
-import { WhosNextTab } from "./WhosNext";
+import { SidePanel } from "./SidePanel";
 import TabConfig from "./TabConfig";
-import { LiveCanvasPage } from "./LiveCanvasPage";
-import { DiscussPatientsPage } from "./DiscussPatientsPage";
+import { MainMenu } from "./MainMenu";
 import "./App.css";
 import { FrameContexts, app } from "@microsoft/teams-js";
 import FluidService from "../services/fluidLiveShare.js";
@@ -42,16 +46,12 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          exact
-          path={"/"}
-          element={<DiscussPatientsPage presence={presence} />}
-        />
+        <Route exact path={"/"} element={<MainMenu presence={presence} />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/termsofuse" element={<TermsOfUse />} />
-        <Route path="/tab" element={<WhosNextTab presence={presence} />} />
-        <Route path="/imageshare" element={<LiveCanvasPage />} />
+        <Route path="/tab" element={<SidePanel presence={presence} />} />
         <Route path="/config" element={<TabConfig />} />
+        <Route path="*" element={<Navigate to={"/tab"} />}></Route>
       </Routes>
     </Router>
   );
