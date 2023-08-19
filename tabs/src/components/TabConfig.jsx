@@ -3,15 +3,15 @@ import "./App.css";
 import { app, pages } from "@microsoft/teams-js";
 
 // Tab configuration page
-class WhosNextConfig extends React.Component {
+class TabConfig extends React.Component {
   componentDidMount() {
     app.initialize().then(async () => {
       //  When the user clicks "Save", save the updated configuration
       pages.config.registerOnSaveHandler(async (saveEvent) => {
         const baseUrl = `https://${window.location.hostname}:${window.location.port}`;
         await pages.config.setConfig({
-          suggestedDisplayName: "Live Patient Review",
-          entityId: "WhosNext",
+          suggestedDisplayName: "Carnival",
+          entityId: "Carnival",
           contentUrl: baseUrl + "/index.html#/tab?inTeams=true",
           websiteUrl: baseUrl + "/index.html#/tab?inTeams=true",
         });
@@ -40,4 +40,4 @@ class WhosNextConfig extends React.Component {
   }
 }
 
-export default WhosNextConfig;
+export default TabConfig;

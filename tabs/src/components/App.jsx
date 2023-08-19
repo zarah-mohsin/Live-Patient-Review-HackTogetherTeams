@@ -4,7 +4,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Privacy from "./Privacy";
 import TermsOfUse from "./TermsOfUse";
 import { WhosNextTab } from "./WhosNext";
-import WhosNextConfig from "./WhosNextConfig";
+import TabConfig from "./TabConfig";
 import { LiveCanvasPage } from "./LiveCanvasPage";
 import { DiscussPatientsPage } from "./DiscussPatientsPage";
 import "./App.css";
@@ -22,13 +22,15 @@ export default function App() {
     await app.initialize();
     app.notifySuccess();
     const context = await app.getContext();
-    if (context.page.frameContext === FrameContexts.sidePanel || context.page.frameContext === FrameContexts.meetingStage) {
+    if (
+      context.page.frameContext === FrameContexts.sidePanel ||
+      context.page.frameContext === FrameContexts.meetingStage
+    ) {
       await FluidService.connect();
       //const people = await FluidService.getPersonList();
       const presence = await FluidService.getPresence();
       setPresence(presence);
-    }
-    else {
+    } else {
       setPresence(null);
     }
   };
@@ -40,12 +42,16 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path={"/"} element={<DiscussPatientsPage presence={presence} />} />
+        <Route
+          exact
+          path={"/"}
+          element={<DiscussPatientsPage presence={presence} />}
+        />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/termsofuse" element={<TermsOfUse />} />
         <Route path="/tab" element={<WhosNextTab presence={presence} />} />
         <Route path="/imageshare" element={<LiveCanvasPage />} />
-        <Route path="/config" element={<WhosNextConfig />} />
+        <Route path="/config" element={<TabConfig />} />
       </Routes>
     </Router>
   );

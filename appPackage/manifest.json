@@ -34,7 +34,9 @@
         "meetingChatTab",
         "meetingDetailsTab",
         "meetingSidePanel",
-        "meetingStage"
+        "meetingStage",
+        "channelTab",
+        "privateChatTab"
       ]
     }
   ],
