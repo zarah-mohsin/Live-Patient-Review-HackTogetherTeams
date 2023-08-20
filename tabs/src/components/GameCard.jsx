@@ -1,13 +1,11 @@
 import React from "react";
 
 export default function GameCard({ games }) {
-  const icon = games.Icon;
-  console.log(icon);
   return (
     <div className="gameCard">
       <div className="iconColumn">
         <div className="gameIcon"></div>
-        <img src={require(games.Icon)} alt="game icon" className="gameIcon" />
+        <img alt="game icon" className="gameIcon" src={games.Icon} />
       </div>
       <div className="detailsColumn">
         <h6>{games.Title}</h6>

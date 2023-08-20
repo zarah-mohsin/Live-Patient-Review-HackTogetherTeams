@@ -15,7 +15,8 @@ import {
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import fluidLiveShare from "../services/fluidLiveShare.js";
 import GameCard from "./GameCard.jsx";
-import games from "../models/Games.json";
+import games from "../models/Games.js";
+import GameIcon from "./GameIcon.jsx";
 import { set } from "lodash";
 
 export const MainMenu = (presence) => {
@@ -208,7 +209,11 @@ export const MainMenu = (presence) => {
   };
 
   const currentGame = games.filter((game) => game.Title === selectGame)[0];
-  console.log(currentGame);
+
+  const updateScreen = () => {
+    setMenuVisible(false);
+    setGameSettingsVisible(true);
+  };
 
   return (
     <div className="bg">
@@ -221,16 +226,23 @@ export const MainMenu = (presence) => {
               <h2>Choose a game to play</h2>
               {games.map((game) => {
                 return (
-                  <button
-                    className="gameSelect"
-                    onClick={() => {
-                      setMenuVisible(false);
-                      setGameSettingsVisible(true);
-                      setSelectGame(game.Title);
-                    }}
-                  >
-                    {game.Title}
-                  </button>
+                  // <button
+                  //   className="gameSelect"
+                  //   onClick={() => {
+                  //     updateScreen();
+                  //     setSelectGame(game.Title);
+                  //   }}
+                  // >
+                  //   {game.Title}
+                  // </button>
+                  <div className="appMenu">
+                    <GameIcon
+                      props={updateScreen}
+                      gameSelect={setSelectGame}
+                      game={game}
+                    />
+                    <br />
+                  </div>
                 );
               })}
             </div>
