@@ -16,6 +16,7 @@ import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import fluidLiveShare from "../services/fluidLiveShare.js";
 import GameCard from "./GameCard.jsx";
 import games from "../models/Games.json";
+import { set } from "lodash";
 
 export const MainMenu = (presence) => {
   const [people, setPeople] = useState([]);
@@ -28,6 +29,7 @@ export const MainMenu = (presence) => {
   const feedbackRef = useRef();
   const [menuVisible, setMenuVisible] = useState(true);
   const [gameSettingsVisible, setGameSettingsVisible] = useState(false);
+  const [selectGame, setSelectGame] = useState("");
 
   const initialize = async () => {
     await app.initialize();
@@ -205,6 +207,9 @@ export const MainMenu = (presence) => {
     );
   };
 
+  const currentGame = games.filter((game) => game.Title === selectGame)[0];
+  console.log(currentGame);
+
   return (
     <div className="bg">
       <div className="mainScreen">
@@ -221,6 +226,7 @@ export const MainMenu = (presence) => {
                     onClick={() => {
                       setMenuVisible(false);
                       setGameSettingsVisible(true);
+                      setSelectGame(game.Title);
                     }}
                   >
                     {game.Title}
@@ -232,7 +238,8 @@ export const MainMenu = (presence) => {
           {gameSettingsVisible && (
             <div>
               <h2>Choose which participants can play</h2>
-              <GameCard games={games} />
+              <GameCard games={currentGame} />
+              <br />
               <button
                 onClick={() => {
                   setGameSettingsVisible(false);
