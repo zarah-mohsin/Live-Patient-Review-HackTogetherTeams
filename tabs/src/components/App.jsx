@@ -13,7 +13,7 @@ import TabConfig from "./TabConfig";
 import { MainMenu } from "./MainMenu";
 import "./App.css";
 import { FrameContexts, app } from "@microsoft/teams-js";
-import FluidService from "../services/fluidLiveShare.js";
+import Game from "../game-files/SnakesAndLadders/Game";
 
 /**
  * The main app which handles the initialization and routing
@@ -30,10 +30,7 @@ export default function App() {
       context.page.frameContext === FrameContexts.sidePanel ||
       context.page.frameContext === FrameContexts.meetingStage
     ) {
-      await FluidService.connect();
-      //const people = await FluidService.getPersonList();
-      const presence = await FluidService.getPresence();
-      setPresence(presence);
+      setPresence("presence");
     } else {
       setPresence(null);
     }
@@ -46,10 +43,10 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path={"/"} element={<MainMenu presence={presence} />} />
+        <Route exact path={"/"} element={<MainMenu />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/termsofuse" element={<TermsOfUse />} />
-        <Route path="/tab" element={<SidePanel presence={presence} />} />
+        <Route path="/tab" element={<SidePanel />} />
         <Route path="/config" element={<TabConfig />} />
         <Route path="*" element={<Navigate to={"/tab"} />}></Route>
       </Routes>

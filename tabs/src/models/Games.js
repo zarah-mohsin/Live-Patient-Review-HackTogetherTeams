@@ -17,8 +17,8 @@ const games = [
   {
     Title: "Jenga",
     Description: "Play Jenga with your friends",
-    MaxPlayers: 4,
-    MinPlayers: 2,
+    MaxPlayers: "None",
+    MinPlayers: 1,
     Icon: require("../game-files/Jenga/icon.png"),
   },
   {
