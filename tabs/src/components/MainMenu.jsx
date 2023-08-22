@@ -18,7 +18,7 @@ import games from "../models/Games.js";
 import GameIcon from "./GameIcon.jsx";
 import Game from "../game-files/SnakesAndLadders/Game";
 
-export const MainMenu = (presence) => {
+export const MainMenu = ({ tabDisplay, setTabDisplay }) => {
   const [people, setPeople] = useState([]);
   const [isAddFeedbackVisible, setIsAddFeedbackVisible] = useState(false);
   const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
@@ -30,7 +30,6 @@ export const MainMenu = (presence) => {
   const [menuVisible, setMenuVisible] = useState(true);
   const [gameSettingsVisible, setGameSettingsVisible] = useState(false);
   const [selectGame, setSelectGame] = useState("");
-  const [playGame, setPlayGame] = useState(false);
 
   const currentGame = games.filter((game) => game.Title === selectGame)[0];
 
@@ -39,11 +38,18 @@ export const MainMenu = (presence) => {
     setGameSettingsVisible(true);
   };
 
-  console.log(playGame);
+  const buttonClick = () => {
+    console.log("i was clicked");
+  };
+
+  const handleChange = () => {
+    setTabDisplay((prevTabDisplay) => "Game");
+  };
 
   return (
     <div className="bg">
       <div className="mainScreen">
+        <p>{tabDisplay}</p>
         <div className="logo"></div>
         <hr className="line"></hr>
         <div className="appMenu">
@@ -64,10 +70,38 @@ export const MainMenu = (presence) => {
               })}
             </div>
           )}
-          {gameSettingsVisible && !playGame && (
+          {gameSettingsVisible && (
             <div>
               <h2>Choose which participants can play</h2>
-              <GameCard games={currentGame} />
+              <div className="gameCard">
+                <div className="iconColumn">
+                  <div className="gameIcon"></div>
+                  <img
+                    alt="game icon"
+                    className="gameIcon"
+                    src={currentGame.Icon}
+                  />
+                </div>
+                <div className="detailsColumn">
+                  <h6>{currentGame.Title}</h6>
+                  <p>{currentGame.Description}</p>
+                  {currentGame.MaxPlayers == "None" ? (
+                    <h6>Players: {currentGame.MinPlayers}+</h6>
+                  ) : (
+                    <h6>
+                      Players: {currentGame.MinPlayers}-{currentGame.MaxPlayers}
+                    </h6>
+                  )}
+                </div>
+                <br />
+              </div>
+              <button
+                className="playButton"
+                onClick={() => (handleChange(), buttonClick())}
+              >
+                Play
+              </button>
+              <br />
               <br />
               <button
                 onClick={() => {
@@ -77,11 +111,6 @@ export const MainMenu = (presence) => {
               >
                 back
               </button>
-            </div>
-          )}
-          {playGame && (
-            <div>
-              <Game />
             </div>
           )}
         </div>

@@ -20,10 +20,10 @@ export default function Snakes3() {
     sendMessage,
     isLoaded,
   } = useUnityContext({
-    loaderUrl: "./build/build3.loader.js",
-    dataUrl: "./build/build3.data",
-    frameworkUrl: "./build/build3.framework.js",
-    codeUrl: "./build/build3.wasm",
+    loaderUrl: "build/SnakesAndLadders/build3.loader.js",
+    dataUrl: "build/SnakesAndLadders/build3.data",
+    frameworkUrl: "build/SnakesAndLadders/build3.framework.js",
+    codeUrl: "build/SnakesAndLadders/build3.wasm",
   });
 
   //////////////LETS ROLL BUTTON TRIGGER///////////////////////

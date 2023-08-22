@@ -13,40 +13,52 @@ import TabConfig from "./TabConfig";
 import { MainMenu } from "./MainMenu";
 import "./App.css";
 import { FrameContexts, app } from "@microsoft/teams-js";
-import Game from "../game-files/SnakesAndLadders/Game";
+import { set } from "lodash";
 
 /**
  * The main app which handles the initialization and routing
  * of the app.
  */
 export default function App() {
-  const [presence, setPresence] = useState(null);
+  const [tabDisplay, setTabDisplay] = useState("Main Menu");
 
   const initialize = async () => {
     await app.initialize();
     app.notifySuccess();
-    const context = await app.getContext();
-    if (
-      context.page.frameContext === FrameContexts.sidePanel ||
-      context.page.frameContext === FrameContexts.meetingStage
-    ) {
-      setPresence("presence");
-    } else {
-      setPresence(null);
-    }
+    // const context = await app.getContext();
+    // if (
+    //   context.page.frameContext === FrameContexts.sidePanel ||
+    //   context.page.frameContext === FrameContexts.meetingStage
+    // ) {
+    //   setPresence("presence");
+    // } else {
+    //   setPresence(null);
+    // }
   };
 
   useEffect(() => {
     initialize();
   }, []);
 
+  // console.log(tabDisplay);
+
   return (
     <Router>
       <Routes>
-        <Route exact path={"/"} element={<MainMenu />} />
+        <Route
+          path="/"
+          element={
+            <MainMenu tabDisplay={tabDisplay} setTabDisplay={setTabDisplay} />
+          }
+        />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/termsofuse" element={<TermsOfUse />} />
-        <Route path="/tab" element={<SidePanel />} />
+        <Route
+          path="/tab"
+          element={
+            <SidePanel tabDisplay={tabDisplay} setTabDisplay={setTabDisplay} />
+          }
+        />
         <Route path="/config" element={<TabConfig />} />
         <Route path="*" element={<Navigate to={"/tab"} />}></Route>
       </Routes>

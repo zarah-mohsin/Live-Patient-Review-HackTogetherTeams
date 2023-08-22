@@ -1,16 +1,7 @@
 import React from "react";
 import { meeting } from "@microsoft/teams-js";
 
-export default function GameCard({ games }) {
-  const letsPlay = async () => {
-    meeting.stopSharingAppContentToStage((error) => {
-      if (!error) {
-        console.log("Stopped sharing to stage");
-      } else {
-        console.warn("stopSharingAppContentToStage failed", error);
-      }
-    });
-  };
+export default function GameCard({ games, handleTabDisplay }) {
   return (
     <>
       <div className="gameCard">
@@ -31,7 +22,7 @@ export default function GameCard({ games }) {
         </div>
         <br />
       </div>
-      <button className="playButton" onClick={letsPlay}>
+      <button className="playButton" onClick={() => handleTabDisplay("Game")}>
         Play
       </button>
       <br />
