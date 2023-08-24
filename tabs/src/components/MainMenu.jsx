@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 //import { useLiveCanvas } from "../utils/useLiveCanvas";
 // import FluidService from "../services/fluidLiveShare.js";
 import { app, meeting } from "@microsoft/teams-js";
@@ -17,19 +17,13 @@ import GameCard from "./GameCard.jsx";
 import games from "../models/Games.js";
 import GameIcon from "./GameIcon.jsx";
 import Game from "../game-files/SnakesAndLadders/Game";
+import TabDisplayContext from "./TabDisplayContext";
 
-export const MainMenu = ({ tabDisplay, setTabDisplay }) => {
-  const [people, setPeople] = useState([]);
-  const [isAddFeedbackVisible, setIsAddFeedbackVisible] = useState(false);
-  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
-  const [feedbackPatientName, setFeedbackPatientName] = useState("");
-  const [clickedKey, setClickedKey] = useState("");
-  const [isImageDialogVisible, setIsImageDialogVisible] = useState(false);
-  const ALLOWED_ROLES = [UserMeetingRole.organizer, UserMeetingRole.presenter];
-  const feedbackRef = useRef();
+export const MainMenu = () => {
   const [menuVisible, setMenuVisible] = useState(true);
   const [gameSettingsVisible, setGameSettingsVisible] = useState(false);
   const [selectGame, setSelectGame] = useState("");
+  const { tabDisplay, setTabDisplay } = useContext(TabDisplayContext);
 
   const currentGame = games.filter((game) => game.Title === selectGame)[0];
 
@@ -42,14 +36,11 @@ export const MainMenu = ({ tabDisplay, setTabDisplay }) => {
     console.log("i was clicked");
   };
 
-  const handleChange = () => {
-    setTabDisplay((prevTabDisplay) => "Game");
-  };
+  console.log(tabDisplay);
 
   return (
     <div className="bg">
       <div className="mainScreen">
-        <p>{tabDisplay}</p>
         <div className="logo"></div>
         <hr className="line"></hr>
         <div className="appMenu">
@@ -59,11 +50,15 @@ export const MainMenu = ({ tabDisplay, setTabDisplay }) => {
               {games.map((game) => {
                 return (
                   <div className="appMenu">
-                    <GameIcon
-                      props={updateScreen}
-                      gameSelect={setSelectGame}
-                      game={game}
-                    />
+                    <button
+                      className="gameSelect"
+                      onClick={() => {
+                        updateScreen();
+                        setSelectGame(game.Title);
+                      }}
+                    >
+                      {game.Title}
+                    </button>
                     <br />
                   </div>
                 );
@@ -97,7 +92,7 @@ export const MainMenu = ({ tabDisplay, setTabDisplay }) => {
               </div>
               <button
                 className="playButton"
-                onClick={() => (handleChange(), buttonClick())}
+                onClick={() => (setTabDisplay("Game"), buttonClick())}
               >
                 Play
               </button>

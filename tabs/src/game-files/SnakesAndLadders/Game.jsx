@@ -34,10 +34,12 @@ const Game = () => {
     getContext();
   }, []);
 
+  console.log(frameContext);
+
   return (
     <div>
-      {frameContext == "sidePanel" && <SidePanel2 user={myName} />}
-      {frameContext == "meetingStage" && <Snakes3 />}
+      {frameContext === "sidePanel" && <SidePanel2 user={myName} />}
+      {frameContext === "meetingStage" && <Snakes3 />}
     </div>
   );
 };

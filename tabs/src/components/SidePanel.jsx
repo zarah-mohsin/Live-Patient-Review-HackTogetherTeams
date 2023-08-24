@@ -1,15 +1,18 @@
 import React from "react";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useContext } from "react";
 import { app, FrameContexts } from "@microsoft/teams-js";
-import "./SidePanel.scss";
 import { meeting } from "@microsoft/teams-js";
 import { inTeams } from "../utils/inTeams.js";
 import { PrimaryButton } from "@fluentui/react";
-import { MainMenu } from "./MainMenu";
-import MainSidePanel from "./MainSidePanel";
+import TabDisplayContext from "./TabDisplayContext";
+import games from "../models/Games.js";
+import "./MainMenu.css";
+// import "./SidePanel.scss";
 
-export const SidePanel = ({ tabDisplay, setTabDisplay }) => {
+export const SidePanel = () => {
   const [frameContext, setFrameContext] = useState("");
+  const { tabDisplay, setTabDisplay } = useContext(TabDisplayContext);
+  const [selectGame, setSelectGame] = useState("");
 
   useEffect(() => {
     async function getContext() {
@@ -44,7 +47,7 @@ export const SidePanel = ({ tabDisplay, setTabDisplay }) => {
   };
 
   console.log(tabDisplay);
-  console.log(frameContext);
+  console.log(selectGame);
   // We're ready; render the whole UI
   // if (frameContext === FrameContexts.meetingStage) {
   //   return (
@@ -55,27 +58,44 @@ export const SidePanel = ({ tabDisplay, setTabDisplay }) => {
   // } else {
   return (
     <div>
-      <h1>Teams Carnival</h1>
-      {tabDisplay === "Main Menu" && <p>{tabDisplay}</p>}
-      {tabDisplay === "Game" && <p>{tabDisplay}</p>}
-      {tabDisplay === "Hello" && (
+      {tabDisplay === "Main Menu" && (
         <div>
-          <p>Hello</p>
-          <MainSidePanel
-            tabDisplay={tabDisplay}
-            setTabDisplay={setTabDisplay}
-          />
+          <div className="bg"></div>
+          <div className="wrapper">
+            <div className="container">
+              <div className="logo"></div>
+              <br />
+              <div className="gameCard">
+                {games.map((game) => {
+                  return (
+                    <div>
+                      <button
+                        className="gameSelect"
+                        onClick={() => {
+                          setSelectGame(game.Title);
+                        }}
+                      >
+                        {game.Title}
+                      </button>
+                      <br />
+                    </div>
+                  );
+                })}
+                hello
+              </div>
+              <br />
+              <p>
+                <PrimaryButton onClick={() => shareToStage()}>
+                  Main Menu
+                </PrimaryButton>
+              </p>
+              <br />
+              <button onClick={() => setTabDisplay("Hello")}>Hello</button>
+              <br />
+            </div>
+          </div>
         </div>
       )}
-      {tabDisplay === "Bye" && <p>{tabDisplay}</p>}
-      <br />
-      <br />
-      <p>
-        <PrimaryButton onClick={() => shareToStage()}>Main Menu</PrimaryButton>
-      </p>
-      <button onClick={() => setTabDisplay("Hello")}>Hello</button>
-      <button onClick={() => setTabDisplay("Bye")}>Bye</button>
     </div>
   );
-  // }
 };
