@@ -6,8 +6,9 @@ import { inTeams } from "../utils/inTeams.js";
 import { PrimaryButton } from "@fluentui/react";
 import TabDisplayContext from "./TabDisplayContext";
 import games from "../models/Games.js";
-import "./MainMenu.css";
-// import "./SidePanel.scss";
+import "./SidePanel.css";
+import GameIcon from "./GameIcon.jsx";
+import { MainMenu } from "./MainMenu.jsx";
 
 export const SidePanel = () => {
   const [frameContext, setFrameContext] = useState("");
@@ -30,10 +31,6 @@ export const SidePanel = () => {
     getContext();
   }, []);
 
-  useEffect(() => {
-    console.log("state changed");
-  }, [tabDisplay]);
-
   const shareToStage = () => {
     if (inTeams()) {
       meeting.shareAppContentToStage((error, result) => {
@@ -46,54 +43,28 @@ export const SidePanel = () => {
     }
   };
 
-  console.log(tabDisplay);
   console.log(selectGame);
-  // We're ready; render the whole UI
-  // if (frameContext === FrameContexts.meetingStage) {
-  //   return (
-  //     <div>
-  //       <MainMenu tabDisplay={tabDisplay} handleTabDisplay={setTabDisplay} />
-  //     </div>
-  //   );
-  // } else {
+
   return (
     <div>
       {tabDisplay === "Main Menu" && (
         <div>
-          <div className="bg"></div>
+          {/* <div className="bg"></div>
           <div className="wrapper">
             <div className="container">
               <div className="logo"></div>
+              <hr className="line"></hr>
               <br />
               <div className="gameCard">
                 {games.map((game) => {
-                  return (
-                    <div>
-                      <button
-                        className="gameSelect"
-                        onClick={() => {
-                          setSelectGame(game.Title);
-                        }}
-                      >
-                        {game.Title}
-                      </button>
-                      <br />
-                    </div>
-                  );
+                  return <GameIcon game={game} selectGame={setSelectGame} />;
                 })}
-                hello
               </div>
               <br />
-              <p>
-                <PrimaryButton onClick={() => shareToStage()}>
-                  Main Menu
-                </PrimaryButton>
-              </p>
-              <br />
-              <button onClick={() => setTabDisplay("Hello")}>Hello</button>
               <br />
             </div>
-          </div>
+          </div> */}
+          <MainMenu />
         </div>
       )}
     </div>

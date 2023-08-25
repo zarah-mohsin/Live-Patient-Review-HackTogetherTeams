@@ -1,17 +1,18 @@
 import React from "react";
 
-export default function GameIcon({ props, gameSelect, game }) {
+export default function GameIcon({ props, selectGame, game }) {
   return (
     <div>
       <button
         className="gameSelect"
         onClick={() => {
           props();
-          gameSelect(game.Title);
+          selectGame(game.Title);
         }}
       >
-        {game.Title}
+        <img alt="game icon" src={game.Icon} />
       </button>
+      <p>{game.Title}</p>
     </div>
   );
 }

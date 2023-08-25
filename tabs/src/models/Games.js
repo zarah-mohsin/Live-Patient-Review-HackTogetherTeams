@@ -27,7 +27,7 @@ const games = [
       "Experience the excitement of Balloon Bomb! Inflate a virtual balloon to the brink of an explosion in this game. Play, pump to the limits, and enjoy an immersive experience!",
     MaxPlayers: "None",
     MinPlayers: 1,
-    Icon: require("../game-files/Jenga/icon.png"),
+    Icon: require("../game-files/BalloonBomb/icon.png"),
   },
   {
     Title: "Trivia Race",
