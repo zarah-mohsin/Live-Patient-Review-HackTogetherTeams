@@ -15,7 +15,7 @@ import "./App.css";
 import { FrameContexts, app } from "@microsoft/teams-js";
 import TabDisplayContext from "./TabDisplayContext";
 import Snakes3 from "../game-files/SnakesAndLadders/Snakes3";
-import TurnBasedCombat from "./TurnBasedCombat";
+import TurnBasedCombat from "../game-files/Combat/TurnBasedCombat";
 
 /**
  * The main app which handles the initialization and routing

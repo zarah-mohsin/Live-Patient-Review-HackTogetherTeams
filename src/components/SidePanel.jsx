@@ -10,7 +10,7 @@ import "./SidePanel.css";
 import GameIcon from "./GameIcon.jsx";
 import { MainMenu } from "./MainMenu.jsx";
 import Game from "../game-files/SnakesAndLadders/Game.jsx";
-import TurnBasedCombat from "./TurnBasedCombat.jsx";
+import TurnBasedCombat from "../game-files/Combat/TurnBasedCombat.jsx";
 
 export const SidePanel = () => {
   const [frameContext, setFrameContext] = useState("");

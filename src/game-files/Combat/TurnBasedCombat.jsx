@@ -1,6 +1,6 @@
 import { useState, useContext, useCallback, useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
-import FluidService from "../game-files/Combat/fluidLiveShare.js";
+import FluidService from "./fluidLiveShare.js";
 import { app, meeting, FrameContexts } from "@microsoft/teams-js";
 import "./turnBasedCombat.css";
 
@@ -20,10 +20,10 @@ export default function TurnBasedCombat() {
   // event listeners establish Unity -> React communication
   const { unityProvider, sendMessage, addEventListener, removeEventListener } =
     useUnityContext({
-      loaderUrl: "build/turn_based_build.loader.js",
-      dataUrl: "build/turn_based_build.data",
-      frameworkUrl: "build/turn_based_build.framework.js",
-      codeUrl: "build/turn_based_build.wasm",
+      loaderUrl: "build/Combat/turn_based_build.loader.js",
+      dataUrl: "build/Combat/turn_based_build.data",
+      frameworkUrl: "build/Combat/turn_based_build.framework.js",
+      codeUrl: "build/Combat/turn_based_build.wasm",
     });
 
   // Callback function for initialisation
