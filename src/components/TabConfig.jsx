@@ -29,11 +29,10 @@ class TabConfig extends React.Component {
         <h1>Tab Configuration</h1>
         <div>
           <br />
-          There are no configuration options for the Who's Next tab. Please
+          There are no configuration options for the Teams Carnival tab. Please
           click "Save" to set up your tab.
           <br />
           <br />
-          Nothing to see here folks!
         </div>
       </div>
     );

@@ -5,12 +5,8 @@ import { meeting } from "@microsoft/teams-js";
 import { inTeams } from "../utils/inTeams.js";
 import { PrimaryButton } from "@fluentui/react";
 import TabDisplayContext from "./TabDisplayContext";
-import games from "../models/Games.js";
 import "./SidePanel.css";
-import GameIcon from "./GameIcon.jsx";
 import { MainMenu } from "./MainMenu.jsx";
-import Game from "../game-files/SnakesAndLadders/Game.jsx";
-import TurnBasedCombat from "../game-files/Combat/TurnBasedCombat.jsx";
 
 export const SidePanel = () => {
   const [frameContext, setFrameContext] = useState("");
@@ -33,11 +29,13 @@ export const SidePanel = () => {
   }, []);
 
   console.log(frameContext);
+  console.log(tabDisplay);
 
   return (
     <div>
-      {tabDisplay === "Main Menu" && <MainMenu />}
-      {tabDisplay === "Game" && <TurnBasedCombat />}
+      <MainMenu />
+      {/* {tabDisplay === "Might & Malice" && <TurnBasedCombat />}
+      {tabDisplay === "Snakes and Ladders" && <Game />} */}
     </div>
   );
 };

@@ -5,7 +5,6 @@ const games = [
       "Roll the dice, climb ladders, and avoid snakes in this classic board game of chance and strategy",
     MaxPlayers: 4,
     MinPlayers: 1,
-    Icon: require("../game-files/SnakesAndLadders/icon.png"),
   },
   {
     Title: "Teams-Rex",
@@ -36,6 +35,13 @@ const games = [
     MaxPlayers: "None",
     MinPlayers: 1,
     Icon: require("../game-files/TriviaRace/icon.png"),
+  },
+  {
+    Title: "Might & Malice",
+    Description: "Fight for glory in this turn-based combat game!",
+    MaxPlayers: "None",
+    MinPlayers: 2,
+    Icon: require("../game-files/MightAndMalice/icon.png"),
   },
 ];
 

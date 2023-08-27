@@ -15,7 +15,6 @@ import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import GameCard from "./GameCard.jsx";
 import games from "../models/Games.js";
 import GameIcon from "./GameIcon.jsx";
-import Game from "../game-files/SnakesAndLadders/Game";
 import TabDisplayContext from "./TabDisplayContext";
 
 export const MainMenu = () => {
@@ -39,8 +38,6 @@ export const MainMenu = () => {
   const buttonClick = () => {
     console.log("i was clicked");
   };
-
-  console.log(tabDisplay);
 
   return (
     <div>
@@ -68,47 +65,6 @@ export const MainMenu = () => {
               <>
                 <GameCard games={currentGame} showGame={showGame} />
               </>
-              // <div>
-              //   <div>
-              //     <div className="iconColumn">
-              //       <div className="gameIcon"></div>
-              //       <img
-              //         alt="game icon"
-              //         className="gameIcon"
-              //         src={currentGame.Icon}
-              //       />
-              //     </div>
-              //     <div className="detailsColumn">
-              //       <h6>{currentGame.Title}</h6>
-              //       <p>{currentGame.Description}</p>
-              //       {currentGame.MaxPlayers == "None" ? (
-              //         <h6>Players: {currentGame.MinPlayers}+</h6>
-              //       ) : (
-              //         <h6>
-              //           Players: {currentGame.MinPlayers}-
-              //           {currentGame.MaxPlayers}
-              //         </h6>
-              //       )}
-              //     </div>
-              //     <br />
-              //   </div>
-              //   <button
-              //     className="playButton"
-              //     onClick={() => (setTabDisplay("Game"), buttonClick())}
-              //   >
-              //     Play
-              //   </button>
-              //   <br />
-              //   <br />
-              //   <button
-              //     onClick={() => {
-              //       setGameSettingsVisible(false);
-              //       setMenuVisible(true);
-              //     }}
-              //   >
-              //     back
-              //   </button>
-              // </div>
             )}
           </div>
         </div>

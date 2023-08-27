@@ -63,10 +63,7 @@
       ]
     }
   },
-  "validDomains": [
-    "${{PROVISIONOUTPUT__FRONTENDHOSTINGOUTPUT__DOMAIN}}",
-    "*.ngrok.io"
-  ],
+  "validDomains": ["${{PROVISIONOUTPUT__FRONTENDHOSTINGOUTPUT__DOMAIN}}"],
   "configurableProperties": [
     "largeImageUrl",
     "smallImageUrl",

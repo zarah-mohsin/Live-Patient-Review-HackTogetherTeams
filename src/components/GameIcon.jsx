@@ -4,6 +4,7 @@ export default function GameIcon({ props, selectGame, game }) {
   return (
     <div>
       <button
+        key={game.Title}
         className="gameSelect"
         onClick={() => {
           props();

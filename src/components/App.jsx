@@ -11,11 +11,10 @@ import TermsOfUse from "./TermsOfUse";
 import { SidePanel } from "./SidePanel";
 import TabConfig from "./TabConfig";
 import { MainMenu } from "./MainMenu";
-import "./App.css";
 import { FrameContexts, app } from "@microsoft/teams-js";
 import TabDisplayContext from "./TabDisplayContext";
-import Snakes3 from "../game-files/SnakesAndLadders/Snakes3";
-import TurnBasedCombat from "../game-files/Combat/TurnBasedCombat";
+import TurnBasedCombat from "../game-files/MightAndMalice/TurnBasedCombat";
+import Games from "./Games";
 
 /**
  * The main app which handles the initialization and routing
@@ -23,7 +22,7 @@ import TurnBasedCombat from "../game-files/Combat/TurnBasedCombat";
  */
 
 export default function App() {
-  const [tabDisplay, setTabDisplay] = useState("Main Menu");
+  // const [tabDisplay, setTabDisplay] = useState("");
 
   const initialize = async () => {
     await app.initialize();
@@ -35,16 +34,17 @@ export default function App() {
   }, []);
 
   return (
-    <TabDisplayContext.Provider value={{ tabDisplay, setTabDisplay }}>
-      <Router>
-        <Routes>
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/termsofuse" element={<TermsOfUse />} />
-          <Route path="/tab" element={<TurnBasedCombat />} />
-          <Route path="/config" element={<TabConfig />} />
-          <Route path="*" element={<Navigate to={"/tab"} />}></Route>
-        </Routes>
-      </Router>
-    </TabDisplayContext.Provider>
+    // <TabDisplayContext.Provider value={{ tabDisplay, setTabDisplay }}>
+    <Router>
+      <Routes>
+        {/* <Route path="/game" element={<Games />} /> */}
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/termsofuse" element={<TermsOfUse />} />
+        <Route path="/tab" element={<TurnBasedCombat />} />
+        <Route path="/config" element={<TabConfig />} />
+        <Route path="*" element={<Navigate to={"/tab"} />}></Route>
+      </Routes>
+    </Router>
+    // </TabDisplayContext.Provider>
   );
 }
