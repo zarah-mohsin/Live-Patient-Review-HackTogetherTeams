@@ -22,7 +22,7 @@ import Games from "./Games";
  */
 
 export default function App() {
-  // const [tabDisplay, setTabDisplay] = useState("");
+  const [tabDisplay, setTabDisplay] = useState("");
 
   const initialize = async () => {
     await app.initialize();
@@ -34,17 +34,18 @@ export default function App() {
   }, []);
 
   return (
-    // <TabDisplayContext.Provider value={{ tabDisplay, setTabDisplay }}>
-    <Router>
-      <Routes>
-        {/* <Route path="/game" element={<Games />} /> */}
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/termsofuse" element={<TermsOfUse />} />
-        <Route path="/tab" element={<TurnBasedCombat />} />
-        <Route path="/config" element={<TabConfig />} />
-        <Route path="*" element={<Navigate to={"/tab"} />}></Route>
-      </Routes>
-    </Router>
-    // </TabDisplayContext.Provider>
+    <TabDisplayContext.Provider value={{ tabDisplay, setTabDisplay }}>
+      <Router>
+        <Routes>
+          <Route path="/game" element={<Games />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/termsofuse" element={<TermsOfUse />} />
+          <Route path="/tab" element={<MainMenu />} />
+          <Route path="/config" element={<TabConfig />} />
+          <Route path="*" element={<Navigate to={"/game"} />}></Route>
+        </Routes>
+      </Router>
+      //{" "}
+    </TabDisplayContext.Provider>
   );
 }

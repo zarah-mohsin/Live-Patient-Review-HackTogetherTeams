@@ -5,6 +5,7 @@ const games = [
       "Roll the dice, climb ladders, and avoid snakes in this classic board game of chance and strategy",
     MaxPlayers: 4,
     MinPlayers: 1,
+    Icon: require("../game-files/SnakesAndLadders/icon.png"),
   },
   {
     Title: "Teams-Rex",

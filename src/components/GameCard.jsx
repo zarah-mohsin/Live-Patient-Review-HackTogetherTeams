@@ -12,7 +12,7 @@ export default function GameCard({ games, showGame }) {
           <img alt="game icon" className="gameIcon" src={games.Icon} />
         </div>
         <div className="detailsColumn">
-          <h6>{games.Title}</h6>
+          <h6 style={{ textAlign: "center" }}>{games.Title}</h6>
           <p>{games.Description}</p>
           {games.MaxPlayers == "None" ? (
             <h6>Players: {games.MinPlayers}+</h6>
@@ -24,15 +24,13 @@ export default function GameCard({ games, showGame }) {
         </div>
         <br />
       </div>
+      <button onClick={showGame}>back</button>
       <button
         className="playButton"
         onClick={() => (setTabDisplay(games.Title), navigate("/game"))}
       >
         Play
       </button>
-      <br />
-      <br />
-      <button onClick={showGame}>back</button>
     </div>
   );
 }
