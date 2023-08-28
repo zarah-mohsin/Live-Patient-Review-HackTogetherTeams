@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState, useContext } from "react";
-//import { useLiveCanvas } from "../utils/useLiveCanvas";
-// import FluidService from "../services/fluidLiveShare.js";
 import { app, meeting } from "@microsoft/teams-js";
 import { UserMeetingRole } from "@microsoft/live-share";
-// import * as liveShareHooks from "../live-share-hooks/index.js";
 import {
   DefaultButton,
   Dialog,
@@ -16,12 +13,12 @@ import GameCard from "./GameCard.jsx";
 import games from "../models/Games.js";
 import GameIcon from "./GameIcon.jsx";
 import TabDisplayContext from "./TabDisplayContext";
+import "./MainMenu.css";
 
 export const MainMenu = () => {
   const [menuVisible, setMenuVisible] = useState(true);
   const [gameSettingsVisible, setGameSettingsVisible] = useState(false);
   const [selectGame, setSelectGame] = useState("");
-  const { tabDisplay, setTabDisplay } = useContext(TabDisplayContext);
 
   const currentGame = games.filter((game) => game.Title === selectGame)[0];
 
@@ -33,10 +30,6 @@ export const MainMenu = () => {
   const showGame = () => {
     setMenuVisible(true);
     setGameSettingsVisible(false);
-  };
-
-  const buttonClick = () => {
-    console.log("i was clicked");
   };
 
   return (

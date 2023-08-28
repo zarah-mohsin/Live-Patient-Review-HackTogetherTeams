@@ -5,7 +5,6 @@ import { meeting } from "@microsoft/teams-js";
 import { inTeams } from "../utils/inTeams.js";
 import { PrimaryButton } from "@fluentui/react";
 import TabDisplayContext from "./TabDisplayContext";
-import "./SidePanel.css";
 import { MainMenu } from "./MainMenu.jsx";
 
 export const SidePanel = () => {
